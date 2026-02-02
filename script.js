@@ -26,7 +26,7 @@ Tone: ${tone}
 Keep it short and nice.`;
   }
 
-  const API_KEY = "AIzaSyDT_xKgNdXQLehwxcmmh45FE2iiBjzLh2g";
+  const API_KEY = "AIzaSyCTAA3KEO8L-ZPRoWBhaaIVkEHyhKokLxM";
 
   try {
 

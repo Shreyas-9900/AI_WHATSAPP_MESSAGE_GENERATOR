@@ -9,14 +9,18 @@
 <body>
 
   <div class="container">
+    
     <h1>💬 AI WhatsApp Message Generator</h1>
     <p>Create perfect messages instantly using AI</p>
 
-    <!-- MODE 1 -->
-    <h2>✅ Quick Message Generator</h2>
+    <!-- ===================== -->
+    <!-- MODE 1: QUICK MODE -->
+    <!-- ===================== -->
+    <h2>✅ Quick Mode</h2>
 
     <label>Choose Context:</label>
     <select id="context">
+      <option selected disabled>SELECT</option>
       <option>Birthday Wish</option>
       <option>Sorry Message</option>
       <option>Formal Request</option>
@@ -36,6 +40,7 @@
 
     <label>Select Tone:</label>
     <select id="tone">
+      <option selected disabled>SELECT</option>
       <option>Friendly</option>
       <option>Formal</option>
       <option>Funny</option>
@@ -51,21 +56,33 @@
 
     <hr>
 
-    <!-- MODE 2 -->
-    <h2>✍️ Custom Situation (Anything)</h2>
+    <!-- ===================== -->
+    <!-- MODE 2: CUSTOM MODE -->
+    <!-- ===================== -->
+    <h2>✍️ Custom Mode</h2>
 
     <label>Type Your Situation:</label>
     <textarea id="custom" rows="4"
       placeholder="Example: Write a message asking my boss for leave tomorrow"></textarea>
 
+    <!-- Generate Button -->
     <button onclick="generateMessage()">✨ Generate Message</button>
 
+    <!-- ===================== -->
+    <!-- OUTPUT SECTION -->
+    <!-- ===================== -->
     <h2>📩 Output Message</h2>
     <textarea id="output" rows="6" readonly></textarea>
 
+    <!-- Copy Button -->
     <button onclick="copyMessage()">📋 Copy Message</button>
 
-    <p class="footer">Made by SHREYAS</p>
+    <!-- WhatsApp Share Button (NEW Feature v2.0) -->
+    <button onclick="shareWhatsApp()">📤 Send to WhatsApp</button>
+
+    <!-- Footer -->
+    <p class="footer">Version 1.2 | Made by SHREYAS ❤️</p>
+
   </div>
 
   <script src="script.js"></script>

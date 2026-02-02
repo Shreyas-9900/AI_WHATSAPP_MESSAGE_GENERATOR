@@ -60,3 +60,8 @@ button:hover {
   font-size: 13px;
   color: gray;
 }
+
+
+button:nth-of-type(3) {
+  background: #128c7e;
+}

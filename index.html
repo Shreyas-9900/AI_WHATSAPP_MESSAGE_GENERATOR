@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI WhatsApp Message Writer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>💬 AI WhatsApp Message Writer</h1>
+    <p>Create perfect messages instantly using AI</p>
+
+    <!-- MODE 1 -->
+    <h2>✅ Quick Message Generator</h2>
+
+    <label>Choose Context:</label>
+    <select id="context">
+      <option>Birthday Wish</option>
+      <option>Sorry Message</option>
+      <option>Formal Request</option>
+      <option>Thank You</option>
+      <option>Invitation</option>
+    </select>
+
+    <label>Select Tone:</label>
+    <select id="tone">
+      <option>Friendly</option>
+      <option>Formal</option>
+      <option>Funny</option>
+      <option>Emotional</option>
+    </select>
+
+    <label>Enter Name / Details:</label>
+    <input type="text" id="name" placeholder="Example: Rahul, Best Friend">
+
+    <hr>
+
+    <!-- MODE 2 -->
+    <h2>✍️ Custom Situation (Anything)</h2>
+
+    <label>Type Your Situation:</label>
+    <textarea id="custom" rows="4"
+      placeholder="Example: Write a message asking my boss for leave tomorrow"></textarea>
+
+    <button onclick="generateMessage()">✨ Generate Message</button>
+
+    <h2>📩 Output Message</h2>
+    <textarea id="output" rows="6" readonly></textarea>
+
+    <button onclick="copyMessage()">📋 Copy Message</button>
+
+    <p class="footer">Made by US</p>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -11,15 +11,20 @@ document.getElementById("tone").addEventListener("change", function () {
   document.getElementById("custom").value = "";
 });
 
+document.getElementById("language").addEventListener("change", function () {
+  document.getElementById("custom").value = "";
+});
+
 
 // If user types custom situation → reset dropdowns to SELECT
 document.getElementById("custom").addEventListener("input", function () {
 
   if (this.value.trim() !== "") {
 
-    // Reset both dropdowns
+    // Reset all dropdowns
     document.getElementById("context").selectedIndex = 0;
     document.getElementById("tone").selectedIndex = 0;
+    document.getElementById("language").selectedIndex = 0;
   }
 });
 
@@ -32,10 +37,18 @@ async function generateMessage() {
 
   let context = document.getElementById("context").value;
   let tone = document.getElementById("tone").value;
+  let language = document.getElementById("language").value;
   let name = document.getElementById("name").value;
   let customText = document.getElementById("custom").value;
 
   let outputBox = document.getElementById("output");
+
+  // Validation: Language must be selected
+  if (language === "SELECT") {
+    outputBox.value = "❌ Please select a language first.";
+    return;
+  }
+
   outputBox.value = "Generating... Please wait ⏳";
 
   let prompt = "";
@@ -51,6 +64,7 @@ Write a WhatsApp message for this situation:
 "${customText}"
 
 Tone: ${tone}
+Language: ${language}
 
 Make it short, clear, and WhatsApp-friendly.
 `;
@@ -62,12 +76,19 @@ Make it short, clear, and WhatsApp-friendly.
   // ================================
   else {
 
+    // Validation: Context must be selected
+    if (context === "SELECT") {
+      outputBox.value = "❌ Please choose a context or type a custom situation.";
+      return;
+    }
+
     prompt = `
 Write a WhatsApp message for:
 
 Context: ${context}
 Person/Details: ${name}
 Tone: ${tone}
+Language: ${language}
 
 Keep it short, polite, and nice.
 `;
@@ -123,11 +144,13 @@ Keep it short, polite, and nice.
   }
 }
 
+
 // ================================
 // ✅ COPY BUTTON FUNCTION
 // ================================
 
 function copyMessage() {
+
   let text = document.getElementById("output");
 
   text.select();
@@ -135,7 +158,6 @@ function copyMessage() {
 
   alert("✅ Message copied! Paste it in WhatsApp 🎉");
 }
-
 
 
 // ================================
@@ -146,15 +168,12 @@ function shareWhatsApp() {
 
   let msg = document.getElementById("output").value;
 
-  // If output is empty
   if (msg.trim() === "") {
     alert("❌ Please generate a message first!");
     return;
   }
 
-  // WhatsApp share link
   let whatsappURL = "https://wa.me/?text=" + encodeURIComponent(msg);
 
-  // Open WhatsApp Web in new tab
   window.open(whatsappURL, "_blank");
 }
